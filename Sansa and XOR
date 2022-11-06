@@ -1,0 +1,14 @@
+    //https://www.hackerrank.com/challenges/sansa-and-xor/problem
+    
+    public static int sansaXor(List<Integer> a) {
+        // Write your code here
+        if(a.size() %2 ==0) return 0; // Every element Will occour even times.
+    
+        int ans=0;    // when n is odd then odd ocurrence will be left.
+        for(int i=0;i<a.size();i=i+2){
+          ans=ans^a.get(i);
+        }
+  
+        return ans;
+    
+    }

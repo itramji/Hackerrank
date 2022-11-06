@@ -1,0 +1,24 @@
+//https://www.hackerrank.com/challenges/sum-vs-xor
+//https://medium.com/@mlgerardvla/hackerrank-sum-vs-xor-63e18dbd11cf
+
+/*
+Initial Thoughts: Brute force would be to check the condition
+                  for all numbers between 0 -> n and keep a 
+                  counter of which ones satisfied it. To make
+                  this faster, we can simply count the number
+                  of zeros after converting n to a binary number.
+Time Complexity: O(n log(n)) //It takes n log(n) time to convert to binary using two's division
+Space Complexity: O(1) //There is no ddynamically allocated variables
+*/
+
+    public static long sumXor(long n) {
+    // Write your code here
+        long count = 0;
+        while(n != 0){
+            count += (n%2 == 0)?1:0;
+            n/=2; 
+        }
+        count = (long) Math.pow(2,count);
+        
+        return count;
+    }

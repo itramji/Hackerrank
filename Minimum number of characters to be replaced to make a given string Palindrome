@@ -1,0 +1,54 @@
+// Java Implementation of the above approach
+import java.util.*;
+
+class Palindrome
+{
+
+// Function to find the minimum number
+// character change required
+static void change(String s)
+{
+
+	// Finding the length of the string
+	int n = s.length();
+
+	// To store the number of replacement operations
+	int cc = 0;
+  
+  int st=0;
+  int e = n-1;
+
+	while(st<e)
+	{
+
+		// If the characters at location
+		// i and n-i-1 are same then
+		// no change is required
+		if(s.charAt(st) == s.charAt(e))
+			continue;
+
+		// Counting one change operation
+		cc += 1;
+
+		// Changing the character with higher
+		// ascii value with lower ascii value
+		if(s.charAt(st) < s.charAt(e))
+			s = s.replace(s.charAt(e),s.charAt(st));
+		else
+			s = s.replace(s.charAt(st),s.charAt(e));
+      
+      	 st++;
+          e--;
+	}
+	System.out.println("Minimum characters to be replaced = "+(cc)) ;
+	System.out.println(s);
+}
+
+// Driver code
+public static void main(String args[])
+{
+	String s = "bbcde";
+	change((s));
+
+}
+}

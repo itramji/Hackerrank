@@ -1,0 +1,61 @@
+// Java Implementation of the above approach
+import java.util.*;
+
+class GFG
+{
+
+// Function to find the minimum number
+// character change required
+static void change(String str)
+{
+  
+  char[] ch = str.toCharArray();
+  
+  Arrays.sort(ch);
+
+	// Finding the length of the string
+	int n = str.length();
+
+	// To store the number of replacement operations
+	int cc = 0;
+  
+  int s=0;
+  int e = n-1;
+
+	while(s<e)
+	{
+
+		// If the characters at location
+		// i and n-i-1 are same then
+		// no change is required
+		if(ch[s] == ch[e])
+			continue;
+
+		// Counting one change operation
+		cc += 1;
+
+		// Changing the character with higher
+		// ascii value with lower ascii value
+		if(ch[s] < ch[e])
+			ch[e] = ch[s];
+		else
+			ch[s] = ch[e];
+      
+      	 s++;
+          e--;
+	}
+	System.out.println("Minimum characters to be replaced = "+(cc)) ;
+	System.out.println(new String(ch));
+}
+
+// Driver code
+public static void main(String args[])
+{
+	String s = "aebcd";
+	change((s));
+
+}
+}
+
+// This code is contributed by
+// Nikhil Gupta
